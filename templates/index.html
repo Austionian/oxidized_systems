@@ -3,7 +3,20 @@
   class="flex flex-col items-center align-middle justify-center h-screen text-center"
 >
   <div>
-    <h1 class="font-mono font-extrabold text-6xl sm:text-8xl">oxidized systems</h1>
+    <h1 class="font-mono font-bold text-6xl sm:text-8xl">
+      oxidized systems
+    </h1>
+  </div>
+  <div>
+    <p class="prose">
+      A
+      <span
+        class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-secondary relative inline-block"
+      >
+        <span class="relative font-bold"> Rust </span>
+      </span>
+      Consultancy
+    </p>
   </div>
   <div class="mt-16 flex flex-col sm:flex-row justify-between w-full max-w-56">
     <div>
@@ -14,18 +27,17 @@
           Contact Us
         </button></a
       >
-      </div>
+    </div>
 
-      <div class="mt-2 sm:mt-0">
+    <div class="mt-2 sm:mt-0">
       <a href="{{ get_url(path='@/about/_index.md') }}">
         <button
           class="inline-block cursor-pointer rounded-md px-4 py-3 text-center font-semibold uppercase text-white transition duration-200 ease-in-out bg-primary hover:bg-secondary hover:text-text"
         >
-            About
+          About
         </button></a
       >
-      </div>
     </div>
   </div>
-  {% endblock content %}
 </div>
+{% endblock content %}
