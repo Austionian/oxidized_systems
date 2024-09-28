@@ -29,3 +29,22 @@ build-tailwind:
     #!/bin/bash
     echo -e "\nMinifying css"
     sh -c './tailwindcss -i ./styles/styles.css -o ./static/styles/styles.css --minify'
+
+build-zola:
+    #!/bin/bash
+    zola build
+
+build:
+    #!/bin/bash
+    just build-tailwind && just build-zola
+
+# Builds the docker image
+docker-build:
+    docker build --tag oxidized .
+
+docker-deploy:
+    DOCKER_HOST="ssh://austin@raspberrypi.local" docker compose up -d
+
+# Builds the new images, saves it to the pi, remotely starts it up with docker compose
+deploy:
+     just build && just docker-build && docker save oxidized | bzip2 | ssh austin@raspberrypi.local docker load && just docker-deploy
