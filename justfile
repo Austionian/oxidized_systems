@@ -40,7 +40,7 @@ build:
 
 # Builds the docker image
 docker-build:
-    docker build --tag oxidized .
+    docker buildx build --platform linux/arm64/v8 --tag oxidized --file Dockerfile .
 
 docker-deploy:
     DOCKER_HOST="ssh://austin@raspberrypi.local" docker compose up -d
